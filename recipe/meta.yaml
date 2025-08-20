@@ -1,18 +1,18 @@
 {% set name = "wagtail-transfer" %}
-{% set version = "0.9.3" %}
+{% set version = "0.10" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wagtail-transfer-{{ version }}.tar.gz
-  sha256: f3b6248b41033145a353e8bd7f3909c7960c3b23ee910d0a6d9a7bf748845cfe
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 1baed64b78470c6ab0ef5beda6ef7b82c0b8943846a78add23422a3ce054e64e
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -20,8 +20,14 @@ requirements:
     - pip
     - setuptools
   run:
+    - django
+    - django-modelcluster
+    - django-taggit
+    - django-treebeard
+    - djangorestframework
+    - requests
     - python >={{ python_min }}
-    - wagtail >=4.1
+    - wagtail >=5.2
 
 test:
   imports:
