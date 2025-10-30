@@ -1,5 +1,5 @@
 {% set name = "wagtail-transfer" %}
-{% set version = "0.10" %}
+{% set version = "0.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 1baed64b78470c6ab0ef5beda6ef7b82c0b8943846a78add23422a3ce054e64e
+  sha256: 02aea3460e0c536e9fc2159fb44f6e8562b9c5f5488496df74040c2b18cdd67a
 
 build:
   noarch: python
